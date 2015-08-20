@@ -1,4 +1,6 @@
-# android-tap-the-black-tiles
+Tap the Black Tiles for Android
+===============================
+
 
 An android WebView-based build for my game *tap-the-black-tiles*
 
@@ -24,10 +26,9 @@ Still, it would probably have took me more time to rebuild the app from scratch,
 
 Erf... Ok, here :
 
-```
                      | Java | Javascript in WebView
+-------------------- | ---- | ---------------------
 Developing the app   | Slow | Fast
 App speed at runtime | Fast | Slow
 Requires icky hacks  | Nope | Yup
 Requires icky code   | Yup  | Nope
-```
