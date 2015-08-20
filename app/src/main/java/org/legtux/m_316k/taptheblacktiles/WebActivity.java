@@ -60,7 +60,7 @@ public class WebActivity extends ActionBarActivity {
         // XXX : Disgusting
         webView.addJavascriptInterface(new JSCallbacks(), "droid");
 
-        webView.loadUrl("file:///android_asset/tap-the-black-tiles/index.html?arcade");
+        webView.loadUrl("file:///android_asset/tap-the-black-tiles/index.html");
     }
 
     @Override
