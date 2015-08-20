@@ -8,8 +8,11 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.webkit.JavascriptInterface;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -29,6 +32,7 @@ public class WebActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_web);
 
+        WebView.setWebContentsDebuggingEnabled(true);
         webView = (WebView) findViewById(R.id.webView);
 
         // Settings
@@ -53,7 +57,10 @@ public class WebActivity extends ActionBarActivity {
         };
         webView.setWebViewClient(client);
 
-        webView.loadUrl("file:///android_asset/tap-the-black-tiles/index.html?reload");
+        // XXX : Disgusting
+        webView.addJavascriptInterface(new JSCallbacks(), "droid");
+
+        webView.loadUrl("file:///android_asset/tap-the-black-tiles/index.html?arcade");
     }
 
     @Override
@@ -67,5 +74,12 @@ public class WebActivity extends ActionBarActivity {
         }
         finish();
         return true;
+    }
+
+    class JSCallbacks {
+        @JavascriptInterface
+        public float getSize() {
+            return (float) webView.getHeight() / webView.getWidth();
+        }
     }
 }
