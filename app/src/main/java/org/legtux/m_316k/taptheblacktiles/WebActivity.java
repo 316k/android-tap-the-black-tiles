@@ -71,9 +71,11 @@ public class WebActivity extends ActionBarActivity {
             // Back always lead to main menu
             webView.loadUrl("file:///android_asset/tap-the-black-tiles/index.html");
             return true;
+        } else if(keyCode == KeyEvent.KEYCODE_BACK) {
+            finish();
+            return true;
         }
-        finish();
-        return true;
+        return false;
     }
 
     class JSCallbacks {
