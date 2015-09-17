@@ -2,6 +2,7 @@ package org.legtux.m_316k.taptheblacktiles;
 
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -32,7 +33,9 @@ public class WebActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_web);
 
-        WebView.setWebContentsDebuggingEnabled(true);
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            WebView.setWebContentsDebuggingEnabled(true);
+        }
         webView = (WebView) findViewById(R.id.webView);
 
         // Settings
